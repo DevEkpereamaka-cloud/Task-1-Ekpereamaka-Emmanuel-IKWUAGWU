@@ -4,5 +4,5 @@ import { protectRoute } from "../middleware/authMiddleware.js";
 import { validateBody } from "../middleware/validate.js";
 import { weatherQuerySchema } from "../validator/weatherValidator.js";
 const router = express.Router();
-router.get("/", validateBody(weatherQuerySchema), getWeather);
+router.get("/", protectRoute, validateBody(weatherQuerySchema), getWeather);
 export default router;
