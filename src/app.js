@@ -1,5 +1,6 @@
 import express from "express";
 import userRoutes from "./routes/userRoutes.js";
+import weatherRoutes from "./routes/weatherRoutes.js";
 
 const app = express();
 
@@ -13,5 +14,6 @@ app.get("/", (req, res) => {
 
 // API Routes
 app.use("/api/users", userRoutes);
+app.use("/api/weather", weatherRoutes);
 
 export default app;

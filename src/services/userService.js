@@ -15,7 +15,7 @@ const createError = (message, statusCode) => {
 
 export const registerUser = async (userData) => {
   try {
-    const { email, password, sensitiveInfo } = userData;
+    const { email, password, sensitiveInfo , age} = userData;
 
     // Check for duplicate user
     const existingUser = await User.findOne({ email });
@@ -37,6 +37,7 @@ export const registerUser = async (userData) => {
       email,
       password: hashedPassword,
       sensitiveInfo: encryptedInfo,
+      age,
     });
 
     return { id: user._id, email: user.email };
